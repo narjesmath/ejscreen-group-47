@@ -40,7 +40,11 @@ ces <- read_csv(here("data", "ces3demographics.csv")) %>%
 ```{r}
 ggplot(data = ces, 
        aes(x = white_percent, y = ces_3_0_score)) +
-  geom_point()
+      geom_hex() +
+  labs(x = "White (%)",
+       y = "CalEnviroScreen 3.0",
+       title= "CES 3.0 scores for white communities",
+      caption = "CalEnviroScreen 3.0 A Tool For Advancing EnvironmentalJustice")
 ```
 
 
