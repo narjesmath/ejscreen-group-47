@@ -10,7 +10,7 @@ output: html_document
 
 ## Setup
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, warning = FALSE, message = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
@@ -26,7 +26,7 @@ library(hexbin)
 ## Read in data
 
 
-```{r}
+```{r, warning = FALSE, message = FALSE}
 
 ces <- read_csv(here("data", "ces3demographics.csv")) %>% 
   clean_names()
@@ -37,7 +37,7 @@ ces <- read_csv(here("data", "ces3demographics.csv")) %>%
 
 ## Visualize the data
 
-```{r}
+```{r , warning = FALSE, message = FALSE}
 ggplot(data = ces, 
        aes(x = white_percent, y = ces_3_0_score)) +
       geom_hex() +
