@@ -6,8 +6,6 @@ output: html_document
 ---
 
 
-#### Overview
-
 ## Setup
 
 ```{r setup, include=FALSE, warning = FALSE, message = FALSE}
@@ -16,15 +14,12 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(janitor)
 library(here)
-
-#install.packages("hexbin")
 library(hexbin)
 
 ```
 
 
 ## Read in data
-
 
 ```{r, warning = FALSE, message = FALSE}
 
@@ -37,16 +32,26 @@ ces <- read_csv(here("data", "ces3demographics.csv")) %>%
 
 ## Visualize the data
 
-```{r , warning = FALSE, message = FALSE}
+```{r, warning = False, message = False}
 ggplot(data = ces, 
        aes(x = white_percent, y = ces_3_0_score)) +
-      geom_hex() +
-  labs(x = "White (%)",
-       y = "CalEnviroScreen 3.0",
-       title= "CES 3.0 scores for white communities",
-      caption = "CalEnviroScreen 3.0 A Tool For Advancing EnvironmentalJustice") + 
-  scale_fill_gradient(low = "red2", high = "skyblue3") +
-  theme_minimal()
+      geom_hex(bin = 5)+
+  labs(x = "Percent of white population (%)",
+       y = "CalEnviroScreen 3.0 score",
+       title= "CalEnviroScreen 3.0 scores for white population",
+      caption = "Calenviroscreen 3.0: A critical tool for achieving for advancing environmental justice (OEHHA). (2018)") + 
+  scale_fill_gradient(low = "red2", high = "skyblue3", name = "Score results") +
+  theme_minimal() +
+  theme(plot.caption = element_text(hjust = 0), plot.title = element_text(hjust = 0.5))
 ```
 
+**Figure1.**
+
+
+
+
+#### Citation: 
+
+
+Calenviroscreen 3.0: A critical tool for achieving for advancing environmental justice. Office of Environmental Health Hazard Assessment (OEHHA). (2018). Retrieved November 14, 2021, from https://calgreenzones.org/wp-content/uploads/2018/09/CEJA-CES-Report-2018_web.pdf. 
 
