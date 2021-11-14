@@ -12,7 +12,6 @@ This report analyzes pollution burdens based on on racial makeup of different ar
 **Data Citation:** 
 California Office of Environmental Health Hazard Assessment. (2018). "CalEnviroScreen 3.0",         California Environmental Protection Agency.
 
-## Setup
 
 ```{r setup, include=FALSE, warning = FALSE, message = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -20,8 +19,6 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(janitor)
 library(here)
-
-#install.packages("hexbin")
 library(hexbin)
 
 ```
