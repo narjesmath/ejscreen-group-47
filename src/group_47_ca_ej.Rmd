@@ -32,7 +32,7 @@ ces <- read_csv(here("data", "ces3demographics.csv")) %>%
 
 ## Visualize the data
 
-```{r, warning = False, message = False}
+```{r,warning = FALSE, message = FALSE}
 ggplot(data = ces, 
        aes(x = white_percent, y = ces_3_0_score)) +
       geom_hex(bin = 5)+
