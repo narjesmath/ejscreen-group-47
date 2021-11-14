@@ -6,6 +6,12 @@ output: html_document
 ---
 
 
+#### Overview
+This report analyzes pollution burdens based on on racial makeup of different areas from 2010 census data. 
+
+**Data Citation:** 
+California Office of Environmental Health Hazard Assessment. (2018). "CalEnviroScreen 3.0",         California Environmental Protection Agency.
+
 ## Setup
 
 ```{r setup, include=FALSE, warning = FALSE, message = FALSE}
@@ -14,6 +20,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(janitor)
 library(here)
+
+#install.packages("hexbin")
 library(hexbin)
 
 ```
@@ -32,27 +40,16 @@ ces <- read_csv(here("data", "ces3demographics.csv")) %>%
 
 ## Visualize the data
 
-```{r,warning = FALSE, message = FALSE}
+```{r , warning = FALSE, message = FALSE}
 ggplot(data = ces, 
        aes(x = white_percent, y = ces_3_0_score)) +
-      geom_hex(bin = 5)+
-  labs(x = "Percent of white population (%)",
-       y = "CalEnviroScreen 3.0 score",
-       title= "CalEnviroScreen 3.0 scores for white population",
-      caption = "Calenviroscreen 3.0: A critical tool for achieving for advancing environmental justice (OEHHA). (2018)") + 
-  scale_fill_gradient(low = "red2", high = "skyblue3", name = "Score results") +
-  theme_minimal() +
-  theme(plot.caption = element_text(hjust = 0), plot.title = element_text(hjust = 0.5))
+      geom_hex() +
+  labs(x = "White (%)",
+       y = "Pollution Burden Score",
+       title= "White Population Pollution Burden Score",
+      caption = "CalEnviroScreen 3.0 A Tool For Advancing EnvironmentalJustice") + 
+  scale_fill_gradient(low = "red2", high = "skyblue3") +
+  theme_minimal()
 ```
 
-**Figure1.**
-
-From this figure, we can see that the percent of white population is low with high scores. CalEnviroScreen 3.0 scores and the percent of white population have a negative relationship with a negative downward slope. That means with higher percent of white population the score decreases.
-
-
-
-#### Citation: 
-
-
-Calenviroscreen 3.0: A critical tool for achieving for advancing environmental justice. Office of Environmental Health Hazard Assessment (OEHHA). (2018). Retrieved November 14, 2021, from https://calgreenzones.org/wp-content/uploads/2018/09/CEJA-CES-Report-2018_web.pdf. 
-
+**Figure 1:** This graph illustrates a negative correlation between the CalEnviroScreen pollution burden score and the percentage of white population. This supports the idea that white populations are protected from high exposure to environmental harm. 
