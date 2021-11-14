@@ -1,0 +1,38 @@
+---
+title: "Group 47 CA pollution burden"
+author: "Narjes Mathlouthi & Julia Wilson"
+date: "11/13/2021"
+output: html_document
+---
+
+
+#### Overview
+
+## Setup
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(janitor)
+library(here)
+
+#install.packages("hexbin")
+library(hexbin)
+
+```
+
+
+## Read in data
+
+
+```{r}
+
+ces <- read_csv(here("data", "ces3demographics.csv")) %>% 
+  clean_names()
+
+
+```
+
+
+
