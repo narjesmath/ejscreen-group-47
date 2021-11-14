@@ -47,6 +47,7 @@ ggplot(data = ces,
 
 **Figure1.**
 
+From this figure, we can see that the percent of white population is low with high scores. CalEnviroScreen 3.0 scores and the percent of white population have a negative relationship with a negative downward slope. That means with higher percent of white population the score decreases.
 
 
 
